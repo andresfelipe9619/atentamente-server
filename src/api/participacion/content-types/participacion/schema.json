@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "participaciones",
+  "info": {
+    "singularName": "participacion",
+    "pluralName": "participaciones",
+    "displayName": "Participacion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "rol": {
+      "type": "string"
+    },
+    "implementacion": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::implementacion.implementacion",
+      "inversedBy": "participaciones"
+    },
+    "participante_asistencia_registros": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::participante-asistencia-registro.participante-asistencia-registro",
+      "mappedBy": "participacion"
+    },
+    "modulo_progreso_registros": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::modulo-progreso-registro.modulo-progreso-registro",
+      "mappedBy": "participacion"
+    },
+    "participante": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::participante.participante",
+      "inversedBy": "participaciones"
+    },
+    "obtuvo_constancia": {
+      "type": "boolean"
+    },
+    "puesto": {
+      "type": "string"
+    },
+    "puesto_detalle": {
+      "type": "string"
+    },
+    "involucramiento": {
+      "type": "string"
+    },
+    "antiguedad": {
+      "type": "string"
+    },
+    "estudiantes_a_cargo": {
+      "type": "integer"
+    },
+    "turno": {
+      "type": "string"
+    },
+    "participa_director": {
+      "type": "boolean"
+    },
+    "cct_verificado": {
+      "type": "boolean"
+    },
+    "prioridad_kellogg": {
+      "type": "string"
+    },
+    "encuesta_completada_registros": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::encuesta-completada-registro.encuesta-completada-registro",
+      "mappedBy": "participacion"
+    }
+  }
+}

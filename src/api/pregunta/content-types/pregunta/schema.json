@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "preguntas",
+  "info": {
+    "singularName": "pregunta",
+    "pluralName": "preguntas",
+    "displayName": "Pregunta"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "texto": {
+      "type": "text"
+    },
+    "encuesta": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::encuesta.encuesta",
+      "inversedBy": "preguntas"
+    }
+  }
+}

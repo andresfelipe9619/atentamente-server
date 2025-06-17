@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "modulos",
+  "info": {
+    "singularName": "modulo",
+    "pluralName": "modulos",
+    "displayName": "Modulo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "modulo_progreso_registros": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::modulo-progreso-registro.modulo-progreso-registro",
+      "mappedBy": "modulo"
+    }
+  }
+}

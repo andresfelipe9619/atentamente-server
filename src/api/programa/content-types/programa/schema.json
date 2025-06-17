@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "programas",
+  "info": {
+    "singularName": "programa",
+    "pluralName": "programas",
+    "displayName": "Programa",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "implementaciones": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::implementacion.implementacion",
+      "mappedBy": "programa"
+    }
+  }
+}

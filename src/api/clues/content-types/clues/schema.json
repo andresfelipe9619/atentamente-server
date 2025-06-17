@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cluess",
+  "info": {
+    "singularName": "clues",
+    "pluralName": "cluess",
+    "displayName": "CLUES",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "clave": {
+      "type": "string"
+    },
+    "municipio": {
+      "type": "string"
+    },
+    "entidad": {
+      "type": "string"
+    },
+    "participantes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::participante.participante",
+      "mappedBy": "clues"
+    }
+  }
+}

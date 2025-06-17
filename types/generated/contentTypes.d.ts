@@ -369,6 +369,641 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAsistenciaAsistencia extends Struct.CollectionTypeSchema {
+  collectionName: 'asistencias';
+  info: {
+    displayName: 'Asistencia';
+    pluralName: 'asistencias';
+    singularName: 'asistencia';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    clave_sesion: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::asistencia.asistencia'
+    > &
+      Schema.Attribute.Private;
+    participante_asistencia_registros: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::participante-asistencia-registro.participante-asistencia-registro'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    tipo_sesion: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCctCct extends Struct.CollectionTypeSchema {
+  collectionName: 'ccts';
+  info: {
+    description: '';
+    displayName: 'CCT';
+    pluralName: 'ccts';
+    singularName: 'cct';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    clave: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    entidad: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::cct.cct'> &
+      Schema.Attribute.Private;
+    municipio: Schema.Attribute.String;
+    nivel_educativo: Schema.Attribute.String;
+    nombre: Schema.Attribute.String;
+    participantes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::participante.participante'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    subsistema: Schema.Attribute.String;
+    tipo_plantel: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    zona: Schema.Attribute.String;
+  };
+}
+
+export interface ApiCluesClues extends Struct.CollectionTypeSchema {
+  collectionName: 'cluess';
+  info: {
+    description: '';
+    displayName: 'CLUES';
+    pluralName: 'cluess';
+    singularName: 'clues';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    clave: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    entidad: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::clues.clues'> &
+      Schema.Attribute.Private;
+    municipio: Schema.Attribute.String;
+    nombre: Schema.Attribute.String;
+    participantes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::participante.participante'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCorreoParticipanteCorreoParticipante
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'correo_participantes';
+  info: {
+    displayName: 'CorreoParticipante';
+    pluralName: 'correo-participantes';
+    singularName: 'correo-participante';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    correo: Schema.Attribute.Email;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::correo-participante.correo-participante'
+    > &
+      Schema.Attribute.Private;
+    participante: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::participante.participante'
+    >;
+    principal: Schema.Attribute.Boolean;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEncuestaCompletadaRegistroEncuestaCompletadaRegistro
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'encuesta_completada_registros';
+  info: {
+    displayName: 'EncuestaCompletadaRegistro';
+    pluralName: 'encuesta-completada-registros';
+    singularName: 'encuesta-completada-registro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    encuesta: Schema.Attribute.Relation<'manyToOne', 'api::encuesta.encuesta'>;
+    estado: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::encuesta-completada-registro.encuesta-completada-registro'
+    > &
+      Schema.Attribute.Private;
+    participacion: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::participacion.participacion'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEncuestaEncuesta extends Struct.CollectionTypeSchema {
+  collectionName: 'encuestas';
+  info: {
+    displayName: 'Encuesta';
+    pluralName: 'encuestas';
+    singularName: 'encuesta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    encuesta_completada_registros: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::encuesta-completada-registro.encuesta-completada-registro'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::encuesta.encuesta'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String;
+    preguntas: Schema.Attribute.Relation<'oneToMany', 'api::pregunta.pregunta'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiImplementacionImplementacion
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'implementaciones';
+  info: {
+    description: '';
+    displayName: 'Implementacion';
+    pluralName: 'implementaciones';
+    singularName: 'implementacion';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    ciclo_escolar: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::implementacion.implementacion'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String;
+    participaciones: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::participacion.participacion'
+    >;
+    participantes: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::participante.participante'
+    >;
+    periodo: Schema.Attribute.String;
+    programa: Schema.Attribute.Relation<'manyToOne', 'api::programa.programa'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiModuloProgresoRegistroModuloProgresoRegistro
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'modulo_progreso_registros';
+  info: {
+    displayName: 'ModuloProgresoRegistro';
+    pluralName: 'modulo-progreso-registros';
+    singularName: 'modulo-progreso-registro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    calificacion: Schema.Attribute.Decimal;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::modulo-progreso-registro.modulo-progreso-registro'
+    > &
+      Schema.Attribute.Private;
+    modulo: Schema.Attribute.Relation<'manyToOne', 'api::modulo.modulo'>;
+    participacion: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::participacion.participacion'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiModuloModulo extends Struct.CollectionTypeSchema {
+  collectionName: 'modulos';
+  info: {
+    displayName: 'Modulo';
+    pluralName: 'modulos';
+    singularName: 'modulo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::modulo.modulo'
+    > &
+      Schema.Attribute.Private;
+    modulo_progreso_registros: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::modulo-progreso-registro.modulo-progreso-registro'
+    >;
+    nombre: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiParticipacionParticipacion
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'participaciones';
+  info: {
+    description: '';
+    displayName: 'Participacion';
+    pluralName: 'participaciones';
+    singularName: 'participacion';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    antiguedad: Schema.Attribute.String;
+    cct_verificado: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    encuesta_completada_registros: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::encuesta-completada-registro.encuesta-completada-registro'
+    >;
+    estudiantes_a_cargo: Schema.Attribute.Integer;
+    implementacion: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::implementacion.implementacion'
+    >;
+    involucramiento: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::participacion.participacion'
+    > &
+      Schema.Attribute.Private;
+    modulo_progreso_registros: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::modulo-progreso-registro.modulo-progreso-registro'
+    >;
+    obtuvo_constancia: Schema.Attribute.Boolean;
+    participa_director: Schema.Attribute.Boolean;
+    participante: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::participante.participante'
+    >;
+    participante_asistencia_registros: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::participante-asistencia-registro.participante-asistencia-registro'
+    >;
+    prioridad_kellogg: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    puesto: Schema.Attribute.String;
+    puesto_detalle: Schema.Attribute.String;
+    rol: Schema.Attribute.String;
+    turno: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiParticipanteAsistenciaRegistroParticipanteAsistenciaRegistro
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'participante_asistencia_registros';
+  info: {
+    displayName: 'ParticipanteAsistenciaRegistro';
+    pluralName: 'participante-asistencia-registros';
+    singularName: 'participante-asistencia-registro';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    asistencia: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::asistencia.asistencia'
+    >;
+    clave_sesion: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::participante-asistencia-registro.participante-asistencia-registro'
+    > &
+      Schema.Attribute.Private;
+    participacion: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::participacion.participacion'
+    >;
+    presente: Schema.Attribute.Boolean;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiParticipanteParticipante
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'participantes';
+  info: {
+    description: '';
+    displayName: 'Participante';
+    pluralName: 'participantes';
+    singularName: 'participante';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    antiguedad: Schema.Attribute.String;
+    cct: Schema.Attribute.Relation<'manyToOne', 'api::cct.cct'>;
+    cct_verificado: Schema.Attribute.Boolean;
+    clues: Schema.Attribute.Relation<'manyToOne', 'api::clues.clues'>;
+    correo_participantes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::correo-participante.correo-participante'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    curp: Schema.Attribute.String;
+    edad: Schema.Attribute.Integer;
+    entidad: Schema.Attribute.String;
+    estado_civil: Schema.Attribute.String;
+    hablante_maya: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    id_externo: Schema.Attribute.String & Schema.Attribute.Unique;
+    implementaciones: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::implementacion.implementacion'
+    >;
+    lengua_indigena: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::participante.participante'
+    > &
+      Schema.Attribute.Private;
+    nivel_educativo: Schema.Attribute.String;
+    nombre: Schema.Attribute.String;
+    participaciones: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::participacion.participacion'
+    >;
+    primer_apellido: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    rfc: Schema.Attribute.String;
+    segundo_apellido: Schema.Attribute.String;
+    sexo: Schema.Attribute.String;
+    telefono: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    uso_app_participantes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::uso-app-participante.uso-app-participante'
+    >;
+  };
+}
+
+export interface ApiPreguntaPregunta extends Struct.CollectionTypeSchema {
+  collectionName: 'preguntas';
+  info: {
+    displayName: 'Pregunta';
+    pluralName: 'preguntas';
+    singularName: 'pregunta';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    encuesta: Schema.Attribute.Relation<'manyToOne', 'api::encuesta.encuesta'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pregunta.pregunta'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    texto: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProgramaPrograma extends Struct.CollectionTypeSchema {
+  collectionName: 'programas';
+  info: {
+    description: '';
+    displayName: 'Programa';
+    pluralName: 'programas';
+    singularName: 'programa';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    implementaciones: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::implementacion.implementacion'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::programa.programa'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTrabajoRealizadoRegistroTrabajoRealizadoRegistro
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'trabajo_realizado_registros';
+  info: {
+    description: '';
+    displayName: 'TrabajoRealizadoRegistro';
+    pluralName: 'trabajo-realizado-registros';
+    singularName: 'trabajo-realizado-registro';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    archivo_evidencia: Schema.Attribute.Text;
+    completado: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    estado_entrega: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::trabajo-realizado-registro.trabajo-realizado-registro'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    trabajo: Schema.Attribute.Relation<'manyToOne', 'api::trabajo.trabajo'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    valor: Schema.Attribute.Decimal;
+  };
+}
+
+export interface ApiTrabajoTrabajo extends Struct.CollectionTypeSchema {
+  collectionName: 'trabajos';
+  info: {
+    displayName: 'Trabajo';
+    pluralName: 'trabajos';
+    singularName: 'trabajo';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::trabajo.trabajo'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    trabajo_realizado_registros: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::trabajo-realizado-registro.trabajo-realizado-registro'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUsoAppParticipanteUsoAppParticipante
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'uso_app_participantes';
+  info: {
+    description: '';
+    displayName: 'UsoAppParticipante';
+    pluralName: 'uso-app-participantes';
+    singularName: 'uso-app-participante';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descargo_app: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::uso-app-participante.uso-app-participante'
+    > &
+      Schema.Attribute.Private;
+    minutos_uso_app: Schema.Attribute.Decimal;
+    participante: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::participante.participante'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -878,6 +1513,23 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::asistencia.asistencia': ApiAsistenciaAsistencia;
+      'api::cct.cct': ApiCctCct;
+      'api::clues.clues': ApiCluesClues;
+      'api::correo-participante.correo-participante': ApiCorreoParticipanteCorreoParticipante;
+      'api::encuesta-completada-registro.encuesta-completada-registro': ApiEncuestaCompletadaRegistroEncuestaCompletadaRegistro;
+      'api::encuesta.encuesta': ApiEncuestaEncuesta;
+      'api::implementacion.implementacion': ApiImplementacionImplementacion;
+      'api::modulo-progreso-registro.modulo-progreso-registro': ApiModuloProgresoRegistroModuloProgresoRegistro;
+      'api::modulo.modulo': ApiModuloModulo;
+      'api::participacion.participacion': ApiParticipacionParticipacion;
+      'api::participante-asistencia-registro.participante-asistencia-registro': ApiParticipanteAsistenciaRegistroParticipanteAsistenciaRegistro;
+      'api::participante.participante': ApiParticipanteParticipante;
+      'api::pregunta.pregunta': ApiPreguntaPregunta;
+      'api::programa.programa': ApiProgramaPrograma;
+      'api::trabajo-realizado-registro.trabajo-realizado-registro': ApiTrabajoRealizadoRegistroTrabajoRealizadoRegistro;
+      'api::trabajo.trabajo': ApiTrabajoTrabajo;
+      'api::uso-app-participante.uso-app-participante': ApiUsoAppParticipanteUsoAppParticipante;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

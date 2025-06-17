@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "implementaciones",
+  "info": {
+    "singularName": "implementacion",
+    "pluralName": "implementaciones",
+    "displayName": "Implementacion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "participantes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::participante.participante",
+      "mappedBy": "implementaciones"
+    },
+    "programa": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::programa.programa",
+      "inversedBy": "implementaciones"
+    },
+    "participaciones": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::participacion.participacion",
+      "mappedBy": "implementacion"
+    },
+    "periodo": {
+      "type": "string"
+    },
+    "ciclo_escolar": {
+      "type": "string"
+    }
+  }
+}

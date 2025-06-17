@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "encuesta_completada_registros",
+  "info": {
+    "singularName": "encuesta-completada-registro",
+    "pluralName": "encuesta-completada-registros",
+    "displayName": "EncuestaCompletadaRegistro"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "estado": {
+      "type": "string"
+    },
+    "participacion": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::participacion.participacion",
+      "inversedBy": "encuesta_completada_registros"
+    },
+    "encuesta": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::encuesta.encuesta",
+      "inversedBy": "encuesta_completada_registros"
+    }
+  }
+}

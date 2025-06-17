@@ -1,0 +1,101 @@
+{
+  "kind": "collectionType",
+  "collectionName": "participantes",
+  "info": {
+    "singularName": "participante",
+    "pluralName": "participantes",
+    "displayName": "Participante",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "implementaciones": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::implementacion.implementacion",
+      "inversedBy": "participantes"
+    },
+    "uso_app_participantes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::uso-app-participante.uso-app-participante",
+      "mappedBy": "participante"
+    },
+    "clues": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::clues.clues",
+      "inversedBy": "participantes"
+    },
+    "cct": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::cct.cct",
+      "inversedBy": "participantes"
+    },
+    "edad": {
+      "type": "integer"
+    },
+    "hablante_maya": {
+      "type": "boolean",
+      "default": false
+    },
+    "telefono": {
+      "type": "string"
+    },
+    "primer_apellido": {
+      "type": "string"
+    },
+    "segundo_apellido": {
+      "type": "string"
+    },
+    "curp": {
+      "type": "string"
+    },
+    "sexo": {
+      "type": "string"
+    },
+    "rfc": {
+      "type": "string"
+    },
+    "entidad": {
+      "type": "string"
+    },
+    "lengua_indigena": {
+      "type": "boolean"
+    },
+    "estado_civil": {
+      "type": "string"
+    },
+    "nivel_educativo": {
+      "type": "string"
+    },
+    "antiguedad": {
+      "type": "string"
+    },
+    "cct_verificado": {
+      "type": "boolean"
+    },
+    "id_externo": {
+      "type": "string",
+      "unique": true
+    },
+    "correo_participantes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::correo-participante.correo-participante",
+      "mappedBy": "participante"
+    },
+    "participaciones": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::participacion.participacion",
+      "mappedBy": "participante"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ccts",
+  "info": {
+    "singularName": "cct",
+    "pluralName": "ccts",
+    "displayName": "CCT",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "clave": {
+      "type": "string"
+    },
+    "nivel_educativo": {
+      "type": "string"
+    },
+    "subsistema": {
+      "type": "string"
+    },
+    "tipo_plantel": {
+      "type": "string"
+    },
+    "zona": {
+      "type": "string"
+    },
+    "municipio": {
+      "type": "string"
+    },
+    "entidad": {
+      "type": "string"
+    },
+    "participantes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::participante.participante",
+      "mappedBy": "cct"
+    }
+  }
+}

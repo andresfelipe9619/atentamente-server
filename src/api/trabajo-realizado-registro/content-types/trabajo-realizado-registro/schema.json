@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trabajo_realizado_registros",
+  "info": {
+    "singularName": "trabajo-realizado-registro",
+    "pluralName": "trabajo-realizado-registros",
+    "displayName": "TrabajoRealizadoRegistro",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "estado_entrega": {
+      "type": "string"
+    },
+    "trabajo": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::trabajo.trabajo",
+      "inversedBy": "trabajo_realizado_registros"
+    },
+    "completado": {
+      "type": "boolean"
+    },
+    "valor": {
+      "type": "decimal"
+    },
+    "archivo_evidencia": {
+      "type": "text"
+    }
+  }
+}

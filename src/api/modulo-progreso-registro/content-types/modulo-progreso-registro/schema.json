@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "modulo_progreso_registros",
+  "info": {
+    "singularName": "modulo-progreso-registro",
+    "pluralName": "modulo-progreso-registros",
+    "displayName": "ModuloProgresoRegistro"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "modulo": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::modulo.modulo",
+      "inversedBy": "modulo_progreso_registros"
+    },
+    "participacion": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::participacion.participacion",
+      "inversedBy": "modulo_progreso_registros"
+    },
+    "calificacion": {
+      "type": "decimal"
+    }
+  }
+}

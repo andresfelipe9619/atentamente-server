@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "asistencias",
+  "info": {
+    "singularName": "asistencia",
+    "pluralName": "asistencias",
+    "displayName": "Asistencia"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "clave_sesion": {
+      "type": "string"
+    },
+    "tipo_sesion": {
+      "type": "string"
+    },
+    "participante_asistencia_registros": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::participante-asistencia-registro.participante-asistencia-registro",
+      "mappedBy": "asistencia"
+    }
+  }
+}

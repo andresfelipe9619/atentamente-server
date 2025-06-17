@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "participante_asistencia_registros",
+  "info": {
+    "singularName": "participante-asistencia-registro",
+    "pluralName": "participante-asistencia-registros",
+    "displayName": "ParticipanteAsistenciaRegistro"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "presente": {
+      "type": "boolean"
+    },
+    "clave_sesion": {
+      "type": "string"
+    },
+    "participacion": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::participacion.participacion",
+      "inversedBy": "participante_asistencia_registros"
+    },
+    "asistencia": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::asistencia.asistencia",
+      "inversedBy": "participante_asistencia_registros"
+    }
+  }
+}

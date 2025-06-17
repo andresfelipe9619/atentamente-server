@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "uso_app_participantes",
+  "info": {
+    "singularName": "uso-app-participante",
+    "pluralName": "uso-app-participantes",
+    "displayName": "UsoAppParticipante",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "descargo_app": {
+      "type": "boolean"
+    },
+    "minutos_uso_app": {
+      "type": "decimal"
+    },
+    "participante": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::participante.participante",
+      "inversedBy": "uso_app_participantes"
+    }
+  }
+}

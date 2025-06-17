@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "correo_participantes",
+  "info": {
+    "singularName": "correo-participante",
+    "pluralName": "correo-participantes",
+    "displayName": "CorreoParticipante"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "correo": {
+      "type": "email"
+    },
+    "participante": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::participante.participante",
+      "inversedBy": "correo_participantes"
+    },
+    "principal": {
+      "type": "boolean"
+    }
+  }
+}
