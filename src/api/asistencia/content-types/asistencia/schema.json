@@ -21,6 +21,12 @@
       "relation": "oneToMany",
       "target": "api::participante-asistencia-registro.participante-asistencia-registro",
       "mappedBy": "asistencia"
+    },
+    "implementacion": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::implementacion.implementacion",
+      "inversedBy": "asistencias"
     }
   }
 }

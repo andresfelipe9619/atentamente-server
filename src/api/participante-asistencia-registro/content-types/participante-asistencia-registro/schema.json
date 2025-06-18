@@ -4,7 +4,8 @@
   "info": {
     "singularName": "participante-asistencia-registro",
     "pluralName": "participante-asistencia-registros",
-    "displayName": "ParticipanteAsistenciaRegistro"
+    "displayName": "ParticipanteAsistenciaRegistro",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -12,9 +13,6 @@
   "attributes": {
     "presente": {
       "type": "boolean"
-    },
-    "clave_sesion": {
-      "type": "string"
     },
     "participacion": {
       "type": "relation",

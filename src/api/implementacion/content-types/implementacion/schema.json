@@ -14,12 +14,6 @@
     "nombre": {
       "type": "string"
     },
-    "participantes": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::participante.participante",
-      "mappedBy": "implementaciones"
-    },
     "programa": {
       "type": "relation",
       "relation": "manyToOne",
@@ -37,6 +31,24 @@
     },
     "ciclo_escolar": {
       "type": "string"
+    },
+    "asistencias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::asistencia.asistencia",
+      "mappedBy": "implementacion"
+    },
+    "trabajos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::trabajo.trabajo",
+      "mappedBy": "implementacion"
+    },
+    "encuestas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::encuesta.encuesta",
+      "mappedBy": "implementacion"
     }
   }
 }

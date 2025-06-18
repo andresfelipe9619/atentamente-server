@@ -14,12 +14,6 @@
     "nombre": {
       "type": "string"
     },
-    "implementaciones": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::implementacion.implementacion",
-      "inversedBy": "participantes"
-    },
     "uso_app_participantes": {
       "type": "relation",
       "relation": "oneToMany",

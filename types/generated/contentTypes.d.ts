@@ -384,6 +384,10 @@ export interface ApiAsistenciaAsistencia extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    implementacion: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::implementacion.implementacion'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -558,6 +562,10 @@ export interface ApiEncuestaEncuesta extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::encuesta-completada-registro.encuesta-completada-registro'
     >;
+    implementacion: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::implementacion.implementacion'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -586,10 +594,15 @@ export interface ApiImplementacionImplementacion
     draftAndPublish: false;
   };
   attributes: {
+    asistencias: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::asistencia.asistencia'
+    >;
     ciclo_escolar: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    encuestas: Schema.Attribute.Relation<'oneToMany', 'api::encuesta.encuesta'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -601,13 +614,10 @@ export interface ApiImplementacionImplementacion
       'oneToMany',
       'api::participacion.participacion'
     >;
-    participantes: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::participante.participante'
-    >;
     periodo: Schema.Attribute.String;
     programa: Schema.Attribute.Relation<'manyToOne', 'api::programa.programa'>;
     publishedAt: Schema.Attribute.DateTime;
+    trabajos: Schema.Attribute.Relation<'oneToMany', 'api::trabajo.trabajo'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -744,6 +754,7 @@ export interface ApiParticipanteAsistenciaRegistroParticipanteAsistenciaRegistro
   extends Struct.CollectionTypeSchema {
   collectionName: 'participante_asistencia_registros';
   info: {
+    description: '';
     displayName: 'ParticipanteAsistenciaRegistro';
     pluralName: 'participante-asistencia-registros';
     singularName: 'participante-asistencia-registro';
@@ -756,7 +767,6 @@ export interface ApiParticipanteAsistenciaRegistroParticipanteAsistenciaRegistro
       'manyToOne',
       'api::asistencia.asistencia'
     >;
-    clave_sesion: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -808,10 +818,6 @@ export interface ApiParticipanteParticipante
     estado_civil: Schema.Attribute.String;
     hablante_maya: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     id_externo: Schema.Attribute.String & Schema.Attribute.Unique;
-    implementaciones: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::implementacion.implementacion'
-    >;
     lengua_indigena: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -951,6 +957,10 @@ export interface ApiTrabajoTrabajo extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    implementacion: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::implementacion.implementacion'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

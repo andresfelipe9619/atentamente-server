@@ -18,6 +18,12 @@
       "relation": "oneToMany",
       "target": "api::trabajo-realizado-registro.trabajo-realizado-registro",
       "mappedBy": "trabajo"
+    },
+    "implementacion": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::implementacion.implementacion",
+      "inversedBy": "trabajos"
     }
   }
 }

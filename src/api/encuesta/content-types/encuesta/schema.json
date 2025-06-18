@@ -24,6 +24,12 @@
       "relation": "oneToMany",
       "target": "api::encuesta-completada-registro.encuesta-completada-registro",
       "mappedBy": "encuesta"
+    },
+    "implementacion": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::implementacion.implementacion",
+      "inversedBy": "encuestas"
     }
   }
 }
