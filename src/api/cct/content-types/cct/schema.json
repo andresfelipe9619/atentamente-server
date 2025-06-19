@@ -17,22 +17,10 @@
     "clave": {
       "type": "string"
     },
-    "nivel_educativo": {
+    "nombre_municipio": {
       "type": "string"
     },
-    "subsistema": {
-      "type": "string"
-    },
-    "tipo_plantel": {
-      "type": "string"
-    },
-    "zona": {
-      "type": "string"
-    },
-    "municipio": {
-      "type": "string"
-    },
-    "entidad": {
+    "nombre_entidad": {
       "type": "string"
     },
     "participantes": {
@@ -40,6 +28,105 @@
       "relation": "oneToMany",
       "target": "api::participante.participante",
       "mappedBy": "cct"
+    },
+    "clave_turno": {
+      "type": "string"
+    },
+    "nombre_turno": {
+      "type": "string"
+    },
+    "tipo_educativo": {
+      "type": "string"
+    },
+    "servicio_educativo": {
+      "type": "string"
+    },
+    "control": {
+      "type": "string"
+    },
+    "tipo_sostenimiento": {
+      "type": "string"
+    },
+    "clave_entidad": {
+      "type": "string"
+    },
+    "clave_municipio": {
+      "type": "string"
+    },
+    "clave_localidad": {
+      "type": "string"
+    },
+    "nombre_localidad": {
+      "type": "string"
+    },
+    "domicilio": {
+      "type": "string"
+    },
+    "numero_exterior": {
+      "type": "string"
+    },
+    "entre_calle": {
+      "type": "string"
+    },
+    "y_calle": {
+      "type": "string"
+    },
+    "calle_posterior": {
+      "type": "string"
+    },
+    "colonia": {
+      "type": "string"
+    },
+    "nombre_colonia": {
+      "type": "string"
+    },
+    "coding_postal": {
+      "type": "string"
+    },
+    "codigo_postal": {
+      "type": "string"
+    },
+    "pagina_web": {
+      "type": "string"
+    },
+    "alumnos_hombres": {
+      "type": "integer"
+    },
+    "alumnos_mujeres": {
+      "type": "integer"
+    },
+    "alumnos_total": {
+      "type": "integer"
+    },
+    "docentes_hombres": {
+      "type": "integer"
+    },
+    "docentes_mujeres": {
+      "type": "integer"
+    },
+    "docentes_total": {
+      "type": "integer"
+    },
+    "aulas_en_uso": {
+      "type": "integer"
+    },
+    "aulas_existencia": {
+      "type": "integer"
+    },
+    "tipo_localidad": {
+      "type": "string"
+    },
+    "longitud_dms": {
+      "type": "string"
+    },
+    "latitud_dms": {
+      "type": "string"
+    },
+    "longitud": {
+      "type": "string"
+    },
+    "latitud": {
+      "type": "string"
     }
   }
 }

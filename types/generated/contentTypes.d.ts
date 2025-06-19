@@ -418,28 +418,57 @@ export interface ApiCctCct extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    alumnos_hombres: Schema.Attribute.Integer;
+    alumnos_mujeres: Schema.Attribute.Integer;
+    alumnos_total: Schema.Attribute.Integer;
+    aulas_en_uso: Schema.Attribute.Integer;
+    aulas_existencia: Schema.Attribute.Integer;
+    calle_posterior: Schema.Attribute.String;
     clave: Schema.Attribute.String;
+    clave_entidad: Schema.Attribute.String;
+    clave_localidad: Schema.Attribute.String;
+    clave_municipio: Schema.Attribute.String;
+    clave_turno: Schema.Attribute.String;
+    codigo_postal: Schema.Attribute.String;
+    coding_postal: Schema.Attribute.String;
+    colonia: Schema.Attribute.String;
+    control: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    entidad: Schema.Attribute.String;
+    docentes_hombres: Schema.Attribute.Integer;
+    docentes_mujeres: Schema.Attribute.Integer;
+    docentes_total: Schema.Attribute.Integer;
+    domicilio: Schema.Attribute.String;
+    entre_calle: Schema.Attribute.String;
+    latitud: Schema.Attribute.String;
+    latitud_dms: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::cct.cct'> &
       Schema.Attribute.Private;
-    municipio: Schema.Attribute.String;
-    nivel_educativo: Schema.Attribute.String;
+    longitud: Schema.Attribute.String;
+    longitud_dms: Schema.Attribute.String;
     nombre: Schema.Attribute.String;
+    nombre_colonia: Schema.Attribute.String;
+    nombre_entidad: Schema.Attribute.String;
+    nombre_localidad: Schema.Attribute.String;
+    nombre_municipio: Schema.Attribute.String;
+    nombre_turno: Schema.Attribute.String;
+    numero_exterior: Schema.Attribute.String;
+    pagina_web: Schema.Attribute.String;
     participantes: Schema.Attribute.Relation<
       'oneToMany',
       'api::participante.participante'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    subsistema: Schema.Attribute.String;
-    tipo_plantel: Schema.Attribute.String;
+    servicio_educativo: Schema.Attribute.String;
+    tipo_educativo: Schema.Attribute.String;
+    tipo_localidad: Schema.Attribute.String;
+    tipo_sostenimiento: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    zona: Schema.Attribute.String;
+    y_calle: Schema.Attribute.String;
   };
 }
 
