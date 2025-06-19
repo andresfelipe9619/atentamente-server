@@ -7,7 +7,7 @@
     "displayName": "Modulo"
   },
   "options": {
-    "draftAndPublish": true
+   "draftAndPublish": false
   },
   "attributes": {
     "nombre": {

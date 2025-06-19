@@ -514,7 +514,7 @@ export interface ApiCorreoParticipanteCorreoParticipante
     singularName: 'correo-participante';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     correo: Schema.Attribute.Email;
@@ -548,7 +548,7 @@ export interface ApiEncuestaCompletadaRegistroEncuestaCompletadaRegistro
     singularName: 'encuesta-completada-registro';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -581,7 +581,7 @@ export interface ApiEncuestaEncuesta extends Struct.CollectionTypeSchema {
     singularName: 'encuesta';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -657,12 +657,13 @@ export interface ApiModuloProgresoRegistroModuloProgresoRegistro
   extends Struct.CollectionTypeSchema {
   collectionName: 'modulo_progreso_registros';
   info: {
+    description: '';
     displayName: 'ModuloProgresoRegistro';
     pluralName: 'modulo-progreso-registros';
     singularName: 'modulo-progreso-registro';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     calificacion: Schema.Attribute.Decimal;
@@ -695,7 +696,7 @@ export interface ApiModuloModulo extends Struct.CollectionTypeSchema {
     singularName: 'modulo';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -1026,7 +1027,7 @@ export interface ApiUsoAppParticipanteUsoAppParticipante
     singularName: 'uso-app-participante';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;

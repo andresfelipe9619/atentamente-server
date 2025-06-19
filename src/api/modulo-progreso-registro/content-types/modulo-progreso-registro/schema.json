@@ -4,10 +4,11 @@
   "info": {
     "singularName": "modulo-progreso-registro",
     "pluralName": "modulo-progreso-registros",
-    "displayName": "ModuloProgresoRegistro"
+    "displayName": "ModuloProgresoRegistro",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "modulo": {
