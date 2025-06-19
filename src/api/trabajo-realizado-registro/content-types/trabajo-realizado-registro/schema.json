@@ -28,6 +28,12 @@
     },
     "archivo_evidencia": {
       "type": "text"
+    },
+    "participacion": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::participacion.participacion",
+      "inversedBy": "trabajo_realizado_registros"
     }
   }
 }

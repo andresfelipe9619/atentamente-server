@@ -772,6 +772,10 @@ export interface ApiParticipacionParticipacion
     puesto: Schema.Attribute.String;
     puesto_detalle: Schema.Attribute.String;
     rol: Schema.Attribute.String;
+    trabajo_realizado_registros: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::trabajo-realizado-registro.trabajo-realizado-registro'
+    >;
     turno: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -963,6 +967,10 @@ export interface ApiTrabajoRealizadoRegistroTrabajoRealizadoRegistro
       'api::trabajo-realizado-registro.trabajo-realizado-registro'
     > &
       Schema.Attribute.Private;
+    participacion: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::participacion.participacion'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     trabajo: Schema.Attribute.Relation<'manyToOne', 'api::trabajo.trabajo'>;
     updatedAt: Schema.Attribute.DateTime;

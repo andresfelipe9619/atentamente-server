@@ -73,6 +73,12 @@
       "relation": "oneToMany",
       "target": "api::encuesta-completada-registro.encuesta-completada-registro",
       "mappedBy": "participacion"
+    },
+    "trabajo_realizado_registros": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::trabajo-realizado-registro.trabajo-realizado-registro",
+      "mappedBy": "participacion"
     }
   }
 }
