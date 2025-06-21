@@ -4,20 +4,15 @@
   "info": {
     "singularName": "encuesta",
     "pluralName": "encuestas",
-    "displayName": "Encuesta"
+    "displayName": "Encuesta",
+    "description": ""
   },
   "options": {
-   "draftAndPublish": false
+    "draftAndPublish": false
   },
   "attributes": {
-    "nombre": {
+    "clave": {
       "type": "string"
-    },
-    "preguntas": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::pregunta.pregunta",
-      "mappedBy": "encuesta"
     },
     "encuesta_completada_registros": {
       "type": "relation",
@@ -30,6 +25,12 @@
       "relation": "manyToOne",
       "target": "api::implementacion.implementacion",
       "inversedBy": "encuestas"
+    },
+    "encuesta_preguntas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::encuesta-pregunta.encuesta-pregunta",
+      "mappedBy": "encuesta"
     }
   }
 }

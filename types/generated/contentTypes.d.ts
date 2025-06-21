@@ -630,6 +630,44 @@ export interface ApiEncuestaCompletadaRegistroEncuestaCompletadaRegistro
       'api::participacion.participacion'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    respuestas: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::respuesta.respuesta'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEncuestaPreguntaEncuestaPregunta
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'encuesta_preguntas';
+  info: {
+    displayName: 'EncuestaPregunta';
+    pluralName: 'encuesta-preguntas';
+    singularName: 'encuesta-pregunta';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    encuesta: Schema.Attribute.Relation<'manyToOne', 'api::encuesta.encuesta'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::encuesta-pregunta.encuesta-pregunta'
+    > &
+      Schema.Attribute.Private;
+    pregunta: Schema.Attribute.Relation<'manyToOne', 'api::pregunta.pregunta'>;
+    publishedAt: Schema.Attribute.DateTime;
+    respuestas: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::respuesta.respuesta'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -639,6 +677,7 @@ export interface ApiEncuestaCompletadaRegistroEncuestaCompletadaRegistro
 export interface ApiEncuestaEncuesta extends Struct.CollectionTypeSchema {
   collectionName: 'encuestas';
   info: {
+    description: '';
     displayName: 'Encuesta';
     pluralName: 'encuestas';
     singularName: 'encuesta';
@@ -647,12 +686,17 @@ export interface ApiEncuestaEncuesta extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    clave: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     encuesta_completada_registros: Schema.Attribute.Relation<
       'oneToMany',
       'api::encuesta-completada-registro.encuesta-completada-registro'
+    >;
+    encuesta_preguntas: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::encuesta-pregunta.encuesta-pregunta'
     >;
     implementacion: Schema.Attribute.Relation<
       'manyToOne',
@@ -664,8 +708,39 @@ export interface ApiEncuestaEncuesta extends Struct.CollectionTypeSchema {
       'api::encuesta.encuesta'
     > &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEtiquetaEtiqueta extends Struct.CollectionTypeSchema {
+  collectionName: 'etiquetas';
+  info: {
+    description: '';
+    displayName: 'Etiqueta';
+    pluralName: 'etiquetas';
+    singularName: 'etiqueta';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::etiqueta.etiqueta'
+    > &
+      Schema.Attribute.Private;
     nombre: Schema.Attribute.String;
-    preguntas: Schema.Attribute.Relation<'oneToMany', 'api::pregunta.pregunta'>;
+    preguntas: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::pregunta.pregunta'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -947,6 +1022,7 @@ export interface ApiParticipanteParticipante
 export interface ApiPreguntaPregunta extends Struct.CollectionTypeSchema {
   collectionName: 'preguntas';
   info: {
+    description: '';
     displayName: 'Pregunta';
     pluralName: 'preguntas';
     singularName: 'pregunta';
@@ -955,10 +1031,20 @@ export interface ApiPreguntaPregunta extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    codigo: Schema.Attribute.String;
+    constructo: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    encuesta: Schema.Attribute.Relation<'manyToOne', 'api::encuesta.encuesta'>;
+    encuesta_preguntas: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::encuesta-pregunta.encuesta-pregunta'
+    >;
+    escala: Schema.Attribute.String;
+    etiquetas: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::etiqueta.etiqueta'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -966,6 +1052,7 @@ export interface ApiPreguntaPregunta extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    subescala: Schema.Attribute.String;
     texto: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -999,6 +1086,41 @@ export interface ApiProgramaPrograma extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     nombre: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRespuestaRespuesta extends Struct.CollectionTypeSchema {
+  collectionName: 'respuestas';
+  info: {
+    displayName: 'Respuesta';
+    pluralName: 'respuestas';
+    singularName: 'respuesta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    encuesta_completada_registro: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::encuesta-completada-registro.encuesta-completada-registro'
+    >;
+    encuesta_pregunta: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::encuesta-pregunta.encuesta-pregunta'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::respuesta.respuesta'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1629,7 +1751,9 @@ declare module '@strapi/strapi' {
       'api::clues.clues': ApiCluesClues;
       'api::correo-participante.correo-participante': ApiCorreoParticipanteCorreoParticipante;
       'api::encuesta-completada-registro.encuesta-completada-registro': ApiEncuestaCompletadaRegistroEncuestaCompletadaRegistro;
+      'api::encuesta-pregunta.encuesta-pregunta': ApiEncuestaPreguntaEncuestaPregunta;
       'api::encuesta.encuesta': ApiEncuestaEncuesta;
+      'api::etiqueta.etiqueta': ApiEtiquetaEtiqueta;
       'api::implementacion.implementacion': ApiImplementacionImplementacion;
       'api::modulo-progreso-registro.modulo-progreso-registro': ApiModuloProgresoRegistroModuloProgresoRegistro;
       'api::modulo.modulo': ApiModuloModulo;
@@ -1638,6 +1762,7 @@ declare module '@strapi/strapi' {
       'api::participante.participante': ApiParticipanteParticipante;
       'api::pregunta.pregunta': ApiPreguntaPregunta;
       'api::programa.programa': ApiProgramaPrograma;
+      'api::respuesta.respuesta': ApiRespuestaRespuesta;
       'api::trabajo-realizado-registro.trabajo-realizado-registro': ApiTrabajoRealizadoRegistroTrabajoRealizadoRegistro;
       'api::trabajo.trabajo': ApiTrabajoTrabajo;
       'api::uso-app-participante.uso-app-participante': ApiUsoAppParticipanteUsoAppParticipante;

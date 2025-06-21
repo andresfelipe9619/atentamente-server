@@ -4,7 +4,8 @@
   "info": {
     "singularName": "pregunta",
     "pluralName": "preguntas",
-    "displayName": "Pregunta"
+    "displayName": "Pregunta",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -13,11 +14,29 @@
     "texto": {
       "type": "text"
     },
-    "encuesta": {
+    "etiquetas": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::encuesta.encuesta",
-      "inversedBy": "preguntas"
+      "relation": "manyToMany",
+      "target": "api::etiqueta.etiqueta",
+      "mappedBy": "preguntas"
+    },
+    "encuesta_preguntas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::encuesta-pregunta.encuesta-pregunta",
+      "mappedBy": "pregunta"
+    },
+    "constructo": {
+      "type": "string"
+    },
+    "escala": {
+      "type": "string"
+    },
+    "subescala": {
+      "type": "string"
+    },
+    "codigo": {
+      "type": "string"
     }
   }
 }

@@ -7,7 +7,7 @@
     "displayName": "EncuestaCompletadaRegistro"
   },
   "options": {
-   "draftAndPublish": false
+    "draftAndPublish": false
   },
   "attributes": {
     "estado": {
@@ -24,6 +24,12 @@
       "relation": "manyToOne",
       "target": "api::encuesta.encuesta",
       "inversedBy": "encuesta_completada_registros"
+    },
+    "respuestas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::respuesta.respuesta",
+      "mappedBy": "encuesta_completada_registro"
     }
   }
 }
