@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "etiquetas",
+  "info": {
+    "singularName": "etiqueta",
+    "pluralName": "etiquetas",
+    "displayName": "Etiqueta",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "preguntas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pregunta.pregunta",
+      "inversedBy": "etiquetas"
+    }
+  }
+}

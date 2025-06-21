@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "respuestas",
+  "info": {
+    "singularName": "respuesta",
+    "pluralName": "respuestas",
+    "displayName": "Respuesta"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "encuesta_pregunta": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::encuesta-pregunta.encuesta-pregunta",
+      "inversedBy": "respuestas"
+    },
+    "encuesta_completada_registro": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::encuesta-completada-registro.encuesta-completada-registro",
+      "inversedBy": "respuestas"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "encuesta_preguntas",
+  "info": {
+    "singularName": "encuesta-pregunta",
+    "pluralName": "encuesta-preguntas",
+    "displayName": "EncuestaPregunta"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "pregunta": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pregunta.pregunta",
+      "inversedBy": "encuesta_preguntas"
+    },
+    "encuesta": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::encuesta.encuesta",
+      "inversedBy": "encuesta_preguntas"
+    },
+    "respuestas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::respuesta.respuesta",
+      "mappedBy": "encuesta_pregunta"
+    }
+  }
+}
