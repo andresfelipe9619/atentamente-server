@@ -11,17 +11,206 @@
     "draftAndPublish": false
   },
   "attributes": {
-    "nombre": {
+    "clues": {
       "type": "string"
     },
-    "clave": {
+    "clave_institucion": {
+      "type": "string"
+    },
+    "nombre_institucion": {
+      "type": "string"
+    },
+    "clave_entidad": {
+      "type": "string"
+    },
+    "entidad": {
+      "type": "string"
+    },
+    "clave_municipio": {
       "type": "string"
     },
     "municipio": {
       "type": "string"
     },
-    "entidad": {
+    "clave_localidad": {
       "type": "string"
+    },
+    "localidad": {
+      "type": "string"
+    },
+    "clave_jurisdiccion": {
+      "type": "string"
+    },
+    "jurisdiccion": {
+      "type": "string"
+    },
+    "clave_tipo_establecimiento": {
+      "type": "string"
+    },
+    "nombre_tipo_establecimiento": {
+      "type": "string"
+    },
+    "clave_tipologia": {
+      "type": "string"
+    },
+    "nombre_tipologia": {
+      "type": "string"
+    },
+    "clave_subtipologia": {
+      "type": "string"
+    },
+    "nombre_subtipologia": {
+      "type": "string"
+    },
+    "nombre_unidad": {
+      "type": "string"
+    },
+    "nombre_comercial": {
+      "type": "string"
+    },
+    "clave_tipo_vialidad": {
+      "type": "string"
+    },
+    "tipo_vialidad": {
+      "type": "string"
+    },
+    "vialidad": {
+      "type": "string"
+    },
+    "numero_exterior": {
+      "type": "integer"
+    },
+    "numero_interior": {
+      "type": "integer"
+    },
+    "clave_tipo_asentamiento": {
+      "type": "string"
+    },
+    "tipo_asentamiento": {
+      "type": "string"
+    },
+    "asentamiento": {
+      "type": "string"
+    },
+    "codigo_postal": {
+      "type": "string"
+    },
+    "observaciones_direccion": {
+      "type": "string"
+    },
+    "clave_estatus_operacion": {
+      "type": "string"
+    },
+    "estatus_operacion": {
+      "type": "string"
+    },
+    "rfc_establecimiento": {
+      "type": "string"
+    },
+    "telefono_1_establecimiento": {
+      "type": "string"
+    },
+    "extension_1_establecimiento": {
+      "type": "string"
+    },
+    "telefono_2_establecimiento": {
+      "type": "string"
+    },
+    "extension_2_establecimiento": {
+      "type": "string"
+    },
+    "fecha_construccion": {
+      "type": "date"
+    },
+    "fecha_inicio_operacion": {
+      "type": "date"
+    },
+    "clave_unidad_movil_marca": {
+      "type": "string"
+    },
+    "unidad_movil_marca": {
+      "type": "string"
+    },
+    "unidad_movil_marca_especifica": {
+      "type": "string"
+    },
+    "unidad_movil_modelo": {
+      "type": "string"
+    },
+    "clave_unidad_movil_programa": {
+      "type": "string"
+    },
+    "unidad_movil_programa": {
+      "type": "string"
+    },
+    "clave_unidad_movil_tipo": {
+      "type": "string"
+    },
+    "unidad_movil_tipo": {
+      "type": "string"
+    },
+    "clave_unidad_movil_tipologia": {
+      "type": "string"
+    },
+    "unidad_movil_tipologia": {
+      "type": "string"
+    },
+    "clave_ins_admin": {
+      "type": "string"
+    },
+    "nombre_ins_admin": {
+      "type": "string"
+    },
+    "clave_nivel_atencion": {
+      "type": "string"
+    },
+    "nivel_atencion": {
+      "type": "string"
+    },
+    "clave_estrato_unidad": {
+      "type": "string"
+    },
+    "estrato_unidad": {
+      "type": "string"
+    },
+    "clave_tipo_obra": {
+      "type": "string"
+    },
+    "tipo_obra": {
+      "type": "string"
+    },
+    "clave_propiedad_inmueble": {
+      "type": "string"
+    },
+    "propiedad_inmueble": {
+      "type": "string"
+    },
+    "latitud": {
+      "type": "string"
+    },
+    "longitud": {
+      "type": "string"
+    },
+    "clave_ultimo_movimiento": {
+      "type": "string"
+    },
+    "ultimo_movimiento": {
+      "type": "string"
+    },
+    "fecha_ultimo_movimiento": {
+      "type": "date"
+    },
+    "comentarios_validacion": {
+      "type": "string"
+    },
+    "clave_motivo_baja": {
+      "type": "string"
+    },
+    "motivo_baja": {
+      "type": "string"
+    },
+    "fecha_baja": {
+      "type": "date"
     },
     "participantes": {
       "type": "relation",

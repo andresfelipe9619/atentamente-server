@@ -484,24 +484,87 @@ export interface ApiCluesClues extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    clave: Schema.Attribute.String;
+    asentamiento: Schema.Attribute.String;
+    clave_entidad: Schema.Attribute.String;
+    clave_estatus_operacion: Schema.Attribute.String;
+    clave_estrato_unidad: Schema.Attribute.String;
+    clave_ins_admin: Schema.Attribute.String;
+    clave_institucion: Schema.Attribute.String;
+    clave_jurisdiccion: Schema.Attribute.String;
+    clave_localidad: Schema.Attribute.String;
+    clave_motivo_baja: Schema.Attribute.String;
+    clave_municipio: Schema.Attribute.String;
+    clave_nivel_atencion: Schema.Attribute.String;
+    clave_propiedad_inmueble: Schema.Attribute.String;
+    clave_subtipologia: Schema.Attribute.String;
+    clave_tipo_asentamiento: Schema.Attribute.String;
+    clave_tipo_establecimiento: Schema.Attribute.String;
+    clave_tipo_obra: Schema.Attribute.String;
+    clave_tipo_vialidad: Schema.Attribute.String;
+    clave_tipologia: Schema.Attribute.String;
+    clave_ultimo_movimiento: Schema.Attribute.String;
+    clave_unidad_movil_marca: Schema.Attribute.String;
+    clave_unidad_movil_programa: Schema.Attribute.String;
+    clave_unidad_movil_tipo: Schema.Attribute.String;
+    clave_unidad_movil_tipologia: Schema.Attribute.String;
+    clues: Schema.Attribute.String;
+    codigo_postal: Schema.Attribute.String;
+    comentarios_validacion: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     entidad: Schema.Attribute.String;
+    estatus_operacion: Schema.Attribute.String;
+    estrato_unidad: Schema.Attribute.String;
+    extension_1_establecimiento: Schema.Attribute.String;
+    extension_2_establecimiento: Schema.Attribute.String;
+    fecha_baja: Schema.Attribute.Date;
+    fecha_construccion: Schema.Attribute.Date;
+    fecha_inicio_operacion: Schema.Attribute.Date;
+    fecha_ultimo_movimiento: Schema.Attribute.Date;
+    jurisdiccion: Schema.Attribute.String;
+    latitud: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localidad: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::clues.clues'> &
       Schema.Attribute.Private;
+    longitud: Schema.Attribute.String;
+    motivo_baja: Schema.Attribute.String;
     municipio: Schema.Attribute.String;
-    nombre: Schema.Attribute.String;
+    nivel_atencion: Schema.Attribute.String;
+    nombre_comercial: Schema.Attribute.String;
+    nombre_ins_admin: Schema.Attribute.String;
+    nombre_institucion: Schema.Attribute.String;
+    nombre_subtipologia: Schema.Attribute.String;
+    nombre_tipo_establecimiento: Schema.Attribute.String;
+    nombre_tipologia: Schema.Attribute.String;
+    nombre_unidad: Schema.Attribute.String;
+    numero_exterior: Schema.Attribute.Integer;
+    numero_interior: Schema.Attribute.Integer;
+    observaciones_direccion: Schema.Attribute.String;
     participantes: Schema.Attribute.Relation<
       'oneToMany',
       'api::participante.participante'
     >;
+    propiedad_inmueble: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    rfc_establecimiento: Schema.Attribute.String;
+    telefono_1_establecimiento: Schema.Attribute.String;
+    telefono_2_establecimiento: Schema.Attribute.String;
+    tipo_asentamiento: Schema.Attribute.String;
+    tipo_obra: Schema.Attribute.String;
+    tipo_vialidad: Schema.Attribute.String;
+    ultimo_movimiento: Schema.Attribute.String;
+    unidad_movil_marca: Schema.Attribute.String;
+    unidad_movil_marca_especifica: Schema.Attribute.String;
+    unidad_movil_modelo: Schema.Attribute.String;
+    unidad_movil_programa: Schema.Attribute.String;
+    unidad_movil_tipo: Schema.Attribute.String;
+    unidad_movil_tipologia: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    vialidad: Schema.Attribute.String;
   };
 }
 
