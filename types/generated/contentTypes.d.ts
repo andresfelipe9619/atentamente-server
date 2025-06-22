@@ -509,7 +509,7 @@ export interface ApiCluesClues extends Struct.CollectionTypeSchema {
     clave_unidad_movil_tipo: Schema.Attribute.String;
     clave_unidad_movil_tipologia: Schema.Attribute.String;
     codigo_postal: Schema.Attribute.String;
-    comentarios_validacion: Schema.Attribute.String;
+    comentarios_validacion: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -539,9 +539,9 @@ export interface ApiCluesClues extends Struct.CollectionTypeSchema {
     nombre_tipo_establecimiento: Schema.Attribute.String;
     nombre_tipologia: Schema.Attribute.String;
     nombre_unidad: Schema.Attribute.String;
-    numero_exterior: Schema.Attribute.Integer;
-    numero_interior: Schema.Attribute.Integer;
-    observaciones_direccion: Schema.Attribute.String;
+    numero_exterior: Schema.Attribute.String;
+    numero_interior: Schema.Attribute.String;
+    observaciones_direccion: Schema.Attribute.Text;
     participantes: Schema.Attribute.Relation<
       'oneToMany',
       'api::participante.participante'
