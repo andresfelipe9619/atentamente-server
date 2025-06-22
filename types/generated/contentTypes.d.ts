@@ -485,6 +485,7 @@ export interface ApiCluesClues extends Struct.CollectionTypeSchema {
   };
   attributes: {
     asentamiento: Schema.Attribute.String;
+    clave: Schema.Attribute.String;
     clave_entidad: Schema.Attribute.String;
     clave_estatus_operacion: Schema.Attribute.String;
     clave_estrato_unidad: Schema.Attribute.String;
@@ -507,7 +508,6 @@ export interface ApiCluesClues extends Struct.CollectionTypeSchema {
     clave_unidad_movil_programa: Schema.Attribute.String;
     clave_unidad_movil_tipo: Schema.Attribute.String;
     clave_unidad_movil_tipologia: Schema.Attribute.String;
-    clues: Schema.Attribute.String;
     codigo_postal: Schema.Attribute.String;
     comentarios_validacion: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;

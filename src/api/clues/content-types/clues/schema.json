@@ -11,7 +11,7 @@
     "draftAndPublish": false
   },
   "attributes": {
-    "clues": {
+    "clave": {
       "type": "string"
     },
     "clave_institucion": {
