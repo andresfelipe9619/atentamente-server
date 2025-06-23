@@ -698,8 +698,8 @@ export interface ApiEncuestaEncuesta extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::encuesta-pregunta.encuesta-pregunta'
     >;
-    implementacion: Schema.Attribute.Relation<
-      'manyToOne',
+    implementaciones: Schema.Attribute.Relation<
+      'manyToMany',
       'api::implementacion.implementacion'
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -769,13 +769,17 @@ export interface ApiImplementacionImplementacion
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    encuestas: Schema.Attribute.Relation<'oneToMany', 'api::encuesta.encuesta'>;
+    encuestas: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::encuesta.encuesta'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::implementacion.implementacion'
     > &
       Schema.Attribute.Private;
+    modulos: Schema.Attribute.Relation<'oneToMany', 'api::modulo.modulo'>;
     nombre: Schema.Attribute.String;
     participaciones: Schema.Attribute.Relation<
       'oneToMany',
@@ -829,6 +833,7 @@ export interface ApiModuloProgresoRegistroModuloProgresoRegistro
 export interface ApiModuloModulo extends Struct.CollectionTypeSchema {
   collectionName: 'modulos';
   info: {
+    description: '';
     displayName: 'Modulo';
     pluralName: 'modulos';
     singularName: 'modulo';
@@ -840,6 +845,10 @@ export interface ApiModuloModulo extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    implementacion: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::implementacion.implementacion'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

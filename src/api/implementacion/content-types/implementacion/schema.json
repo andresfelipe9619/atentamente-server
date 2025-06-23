@@ -46,8 +46,14 @@
     },
     "encuestas": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::encuesta.encuesta",
+      "mappedBy": "implementaciones"
+    },
+    "modulos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::modulo.modulo",
       "mappedBy": "implementacion"
     }
   }
