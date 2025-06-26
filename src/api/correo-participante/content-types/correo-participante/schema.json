@@ -7,7 +7,7 @@
     "displayName": "CorreoParticipante"
   },
   "options": {
-   "draftAndPublish": false
+    "draftAndPublish": false
   },
   "attributes": {
     "correo": {

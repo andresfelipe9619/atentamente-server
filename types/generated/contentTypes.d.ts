@@ -1008,6 +1008,7 @@ export interface ApiParticipanteParticipante
       Schema.Attribute.Private;
     nivel_educativo: Schema.Attribute.String;
     nombre: Schema.Attribute.String;
+    nombre_completo: Schema.Attribute.String;
     participaciones: Schema.Attribute.Relation<
       'oneToMany',
       'api::participacion.participacion'

@@ -90,6 +90,9 @@
       "relation": "oneToMany",
       "target": "api::participacion.participacion",
       "mappedBy": "participante"
+    },
+    "nombre_completo": {
+      "type": "string"
     }
   }
 }
