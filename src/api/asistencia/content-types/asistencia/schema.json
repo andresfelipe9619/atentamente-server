@@ -4,16 +4,14 @@
   "info": {
     "singularName": "asistencia",
     "pluralName": "asistencias",
-    "displayName": "Asistencia"
+    "displayName": "Asistencia",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
   },
   "attributes": {
     "clave_sesion": {
-      "type": "string"
-    },
-    "tipo_sesion": {
       "type": "string"
     },
     "participante_asistencia_registros": {
@@ -27,6 +25,9 @@
       "relation": "manyToOne",
       "target": "api::implementacion.implementacion",
       "inversedBy": "asistencias"
+    },
+    "modalidad": {
+      "type": "string"
     }
   }
 }

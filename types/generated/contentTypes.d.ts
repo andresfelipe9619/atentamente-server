@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAsistenciaAsistencia extends Struct.CollectionTypeSchema {
   collectionName: 'asistencias';
   info: {
+    description: '';
     displayName: 'Asistencia';
     pluralName: 'asistencias';
     singularName: 'asistencia';
@@ -394,12 +395,12 @@ export interface ApiAsistenciaAsistencia extends Struct.CollectionTypeSchema {
       'api::asistencia.asistencia'
     > &
       Schema.Attribute.Private;
+    modalidad: Schema.Attribute.String;
     participante_asistencia_registros: Schema.Attribute.Relation<
       'oneToMany',
       'api::participante-asistencia-registro.participante-asistencia-registro'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    tipo_sesion: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -916,6 +917,7 @@ export interface ApiParticipacionParticipacion
       'api::participante-asistencia-registro.participante-asistencia-registro'
     >;
     prioridad_kellogg: Schema.Attribute.String;
+    promedio_modulos: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     puesto: Schema.Attribute.String;
     puesto_detalle: Schema.Attribute.String;

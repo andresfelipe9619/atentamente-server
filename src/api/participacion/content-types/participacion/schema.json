@@ -79,6 +79,9 @@
       "relation": "oneToMany",
       "target": "api::trabajo-realizado-registro.trabajo-realizado-registro",
       "mappedBy": "participacion"
+    },
+    "promedio_modulos": {
+      "type": "string"
     }
   }
 }
