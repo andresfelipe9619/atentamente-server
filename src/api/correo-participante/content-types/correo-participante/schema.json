@@ -4,15 +4,13 @@
   "info": {
     "singularName": "correo-participante",
     "pluralName": "correo-participantes",
-    "displayName": "CorreoParticipante"
+    "displayName": "CorreoParticipante",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
   },
   "attributes": {
-    "correo": {
-      "type": "email"
-    },
     "participante": {
       "type": "relation",
       "relation": "manyToOne",
@@ -21,6 +19,9 @@
     },
     "principal": {
       "type": "boolean"
+    },
+    "correo": {
+      "type": "string"
     }
   }
 }
